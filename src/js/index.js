@@ -1,6 +1,6 @@
-import { fetchImages } from '../js/fetchImages';
+import { axiosImages } from '/node_modules/axios';
 import Notiflix from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
+import SimpleLightbox from '/node_modules/simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const input = document.querySelector('.search-form-input');
@@ -28,7 +28,7 @@ btnSearch.addEventListener('click', e => {
   cleanGallery();
   const trimmedValue = input.value.trim();
   if (trimmedValue !== '') {
-    fetchImages(trimmedValue, pageNumber).then(foundData => {
+    axiosImages(trimmedValue, pageNumber).then(foundData => {
       if (foundData.hits.length === 0) {
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
@@ -49,7 +49,7 @@ btnLoadMore.addEventListener('click', () => {
   pageNumber++;
   const trimmedValue = input.value.trim();
   btnLoadMore.style.display = 'none';
-  fetchImages(trimmedValue, pageNumber).then(foundData => {
+  axiosImages(trimmedValue, pageNumber).then(foundData => {
     if (foundData.hits.length === 0) {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
