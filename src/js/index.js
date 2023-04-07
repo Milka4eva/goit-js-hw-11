@@ -1,4 +1,4 @@
-import { axiosImages } from '/node_modules/axios';
+import { axiosImages } from 'axios';
 import Notiflix from 'notiflix';
 import SimpleLightbox from '/node_modules/simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
