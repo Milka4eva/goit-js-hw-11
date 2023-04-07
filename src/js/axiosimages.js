@@ -1,4 +1,5 @@
 import axios from "axios";
+const axios = require('axios');
 
 export const axiosImages = async (inputValue, pageNr) => {
     return await axios.get(
@@ -13,7 +14,5 @@ export const axiosImages = async (inputValue, pageNr) => {
         }
         return await response.json();
       })
-      .catch(error => {
-        console.error(error);
-      });
+      .catch(error => console.error(error));
   };
